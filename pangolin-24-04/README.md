@@ -2,6 +2,20 @@
 
 This repository contains Packer templates and scripts to build a DigitalOcean Marketplace 1-Click App for [Pangolin](https://github.com/fosrl/pangolin), a self-hosted tunneled mesh reverse proxy with access control.
 
+## TL;DR - Quick Build
+
+```bash
+# Install Packer plugin
+packer init plugins.pkr.hcl
+
+# Set API token
+export DIGITALOCEAN_API_TOKEN=your_digitalocean_token
+
+# Validate and build
+packer validate pangolin-24-04/template.json
+packer build pangolin-24-04/template.json
+```
+
 ## Prerequisites
 
 - [Packer](https://www.packer.io/downloads) (v1.7.0 or higher)
