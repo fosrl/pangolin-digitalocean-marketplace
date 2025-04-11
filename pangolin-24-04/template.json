@@ -31,11 +31,6 @@
       "destination": "/var/"
     },
     {
-      "type": "file",
-      "source": "pangolin-24-04/files/etc/",
-      "destination": "/etc/"
-    },
-    {
       "type": "shell",
       "environment_vars": [
         "DEBIAN_FRONTEND=noninteractive",
