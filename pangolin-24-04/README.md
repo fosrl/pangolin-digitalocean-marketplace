@@ -4,6 +4,8 @@ This repository contains Packer templates and scripts to build a DigitalOcean Ma
 
 ## TL;DR - Quick Build
 
+Packer will create a DigitalOcean droplet, install Pangolin and its dependencies, then save the system as a reusable image (snapshot) for the Marketplace.
+
 ```bash
 # Install Packer plugin
 packer init plugins.pkr.hcl
