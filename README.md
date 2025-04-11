@@ -39,10 +39,6 @@ pangolin-marketplace/
 │       ├── 020-application-tag.sh
 │       └── 900-cleanup.sh
 └── pangolin-24-04/
-    ├── files/
-    │   └── etc/
-    │       └── update-motd.d/
-    │           └── 99-one-click
     ├── scripts/
     │   ├── 010-pangolin.sh
     │   └── 020-firewall.sh
@@ -64,7 +60,7 @@ pangolin-marketplace/
    packer {
      required_plugins {
        digitalocean = {
-         version = ">= 1.0.4"
+         version = ">= 1.4.1"
          source  = "github.com/digitalocean/digitalocean"
        }
      }
@@ -83,7 +79,6 @@ pangolin-marketplace/
 4. Create the necessary directory structure if it doesn't already exist:
    ```bash
    mkdir -p common/files/var/lib/digitalocean
-   mkdir -p pangolin-24-04/files/etc/update-motd.d
    ```
 
 5. Validate the template:
