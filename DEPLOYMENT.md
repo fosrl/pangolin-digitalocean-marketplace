@@ -10,7 +10,7 @@ This guide walks you through deploying and configuring Pangolin using the Digita
 2. Navigate to the Marketplace and search for "Pangolin".
 3. Click on the Pangolin 1-Click App.
 4. Configure your Droplet:
-   - Choose a plan (recommended: at least 1GB RAM)
+   - Choose a plan (recommended: at least 1GB RAM, but it can also be deployed on DigitalOcean's smallest droplet size: **$4 s-1vcpu-512mb-10gb**)
    - Select a datacenter region
    - Add SSH keys for authentication
    - Choose a hostname (e.g., pangolin-server)
