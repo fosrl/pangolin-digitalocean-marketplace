@@ -40,14 +40,28 @@ echo ""
 cd /opt/pangolin
 ./installer -y
 
+# Get the configured domain from config.yml
+DOMAIN=$(grep -A1 "dashboard_url" /opt/pangolin/config/config.yml | grep "https://" | awk -F"https://" '{print $2}')
+
 # Post-installation info
 echo ""
 echo -e "${GREEN}Pangolin has been installed successfully!${NC}"
 echo ""
 echo -e "${YELLOW}Important Next Steps:${NC}"
-echo "1. Access Pangolin at: https://$DOMAIN"
+echo "1. Access Pangolin at: https://${DOMAIN}"
 echo "2. Complete the initial setup wizard in your browser"
+echo "   Note: It might take a few minutes for Traefik to generate SSL certificates"
 echo "3. See the documentation at: https://docs.fossorial.io"
+echo ""
+echo -e "${YELLOW}Configuration Information:${NC}"
+echo "- Configuration directory: /opt/pangolin/config"
+echo "- Main configuration file: /opt/pangolin/config/config.yml"
+echo ""
+echo -e "${YELLOW}Security Information:${NC}"
+echo "To keep this Droplet secure, the UFW firewall is enabled."
+echo "All ports are BLOCKED except 22 (SSH), 80 (HTTP), 443 (HTTPS), and 51820 (WireGuard)."
+echo -e "${RED}Recommendation:${NC} For improved security, consider restricting SSH access (port 22)"
+echo "to only your IP address using: ${GREEN}ufw allow from YOUR_IP to any port 22${NC} or set up a DigitalOcean Cloud Firewall: https://docs.digitalocean.com/products/networking/firewalls/"
 echo ""
 echo -e "${BLUE}Thank you for using Pangolin from the DigitalOcean Marketplace.${NC}"
 echo ""
@@ -60,10 +74,7 @@ EOF
 chmod +x /opt/pangolin/setup.sh
 
 # Add to root's .bashrc to run on first login
-echo "# Run Pangolin setup on first login" >> /root/.bashrc
-echo "if [ -f /opt/pangolin/setup.sh ]; then" >> /root/.bashrc
-echo "    /opt/pangolin/setup.sh" >> /root/.bashrc
-echo "fi" >> /root/.bashrc
+echo "/opt/pangolin/setup.sh" >> /root/.bashrc
 
 # Create per-instance startup script
 mkdir -p /var/lib/cloud/scripts/per-instance
