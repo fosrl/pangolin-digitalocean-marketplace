@@ -33,20 +33,6 @@ echo "  2. Your email address for LetsEncrypt SSL certificates"
 echo ""
 read -p "Press Enter to continue..."
 
-# Get domain and email
-echo ""
-echo -e "${BLUE}Domain Configuration${NC}"
-echo -e "Please enter the domain name you want to use with Pangolin."
-echo -e "This domain should already be pointing to this server's IP: $(curl -s ifconfig.me)"
-echo ""
-read -p "Domain (e.g., pangolin.example.com): " DOMAIN
-
-echo ""
-echo -e "${BLUE}Email Configuration${NC}"
-echo -e "Please enter your email address for LetsEncrypt SSL certificates."
-echo ""
-read -p "Email: " EMAIL
-
 # Run the installer
 echo ""
 echo -e "${BLUE}Running Pangolin Installer...${NC}"
@@ -122,6 +108,9 @@ Pangolin is a self-hosted tunneled mesh reverse proxy server with identity and a
 1. When you first log in, the setup script will guide you through the initial configuration.
 2. Make sure your domain is pointing to this server's IP address before running the setup.
 3. After completing the setup, you can access the Pangolin dashboard at `https://your-domain.com`.
+
+##  Licensing
+Pangolin is dual licensed under the AGPL-3 and the Fossorial Commercial license. To see our commercial offerings, please see our website for details. For inquiries about commercial licensing, please contact us at numbat@fossorial.io.
 
 ## Documentation
 
