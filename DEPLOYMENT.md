@@ -139,13 +139,13 @@ To update Pangolin in the future:
 2. Update the installer:
    ```bash
    cd /opt/pangolin
-   wget -O installer "https://github.com/fosrl/pangolin/releases/download/latest/installer_linux_$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')"
+   curl -fsSL https://pangolin.net/get-installer.sh | bash
    chmod +x ./installer
    ```
 
 3. Run the installer:
    ```bash
-   ./installer -y
+   sudo ./installer
    ```
 
 ## Troubleshooting

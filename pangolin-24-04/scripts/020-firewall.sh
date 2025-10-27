@@ -9,6 +9,7 @@ ufw allow 22/tcp
 ufw allow 80/tcp
 ufw allow 443/tcp
 ufw allow 51820/udp  # WireGuard
+ufw allow 21820/udp  # WireGuard hole punch
 ufw --force enable
 
 # Install and configure fail2ban

@@ -14,8 +14,8 @@ packer init plugins.pkr.hcl
 export DIGITALOCEAN_API_TOKEN=your_digitalocean_token
 
 # Validate and build
-packer validate pangolin-24-04/template.json
-packer build pangolin-24-04/template.json
+packer validate pangolin-25-04/template.json
+packer build pangolin-25-04/template.json
 ```
 
 ## Prerequisites
@@ -38,7 +38,7 @@ pangolin-marketplace/
 │       ├── 018-force-ssh-logout.sh
 │       ├── 020-application-tag.sh
 │       └── 900-cleanup.sh
-└── pangolin-24-04/
+└── pangolin-25-04/
     ├── scripts/
     │   ├── 010-pangolin.sh
     │   └── 020-firewall.sh
@@ -83,12 +83,12 @@ pangolin-marketplace/
 
 5. Validate the template:
    ```bash
-   packer validate pangolin-24-04/template.json
+   packer validate pangolin-25-04/template.json
    ```
 
 6. Build the image:
    ```bash
-   packer build pangolin-24-04/template.json
+   packer build pangolin-25-04/template.json
    ```
 
 7. The build will output a snapshot ID. Note this ID for submission to the Marketplace.
@@ -122,17 +122,17 @@ If you encounter issues during the build:
 
 1. Add the `-debug` flag to prompt for confirmation at each build step:
    ```bash
-   packer build -debug pangolin-24-04/template.json
+   packer build -debug pangolin-25-04/template.json
    ```
 
 2. Use the `-on-error=ask` flag to debug failed builds:
    ```bash
-   packer build -on-error=ask pangolin-24-04/template.json
+   packer build -on-error=ask pangolin-25-04/template.json
    ```
 
 3. Enable verbose logging:
    ```bash
-   PACKER_LOG=1 packer build pangolin-24-04/template.json
+   PACKER_LOG=1 packer build pangolin-25-04/template.json
    ```
 
 ## License
