@@ -1,6 +1,7 @@
 {
   "variables": {
     "do_api_token": "{{env `DIGITALOCEAN_API_TOKEN`}}",
+    "application_version": "latest",
     "image_name": "pangolin-24-04-snapshot-{{timestamp}}",
     "apt_packages": "apt-transport-https ca-certificates curl software-properties-common gnupg lsb-release ufw fail2ban jq",
     "application_name": "Pangolin"

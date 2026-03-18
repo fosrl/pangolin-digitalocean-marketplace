@@ -4,26 +4,10 @@ set -e
 # Create directories for Pangolin
 mkdir -p /opt/pangolin
 
-# --- 1. Look up the most-recent Pangolin release tag -------------------------
-application_version=$(
-  curl -s https://api.github.com/repos/fosrl/pangolin/releases/latest |
-  jq -r .tag_name
-)
-
-# --- 2. Translate kernel arch → Pangolin asset arch --------------------------
-ARCH=$(uname -m | sed 's/x86_64/amd64/;s/aarch64/arm64/')
-
-# --- 3. Fetch the matching installer ----------------------------------------
-echo "Downloading Pangolin ${application_version} for ${ARCH}…"
-
-(
-  cd /opt/pangolin || exit 1
-  curl -fsSL https://pangolin.net/get-installer.sh | bash
-)
-
 # Create first-login setup script
 cat > /opt/pangolin/setup.sh << 'EOF'
 #!/bin/bash
+set -e
 
 # Colors for better UI
 RED='\033[0;31m'
@@ -50,6 +34,9 @@ echo ""
 echo -e "${BLUE}Running Pangolin Installer...${NC}"
 echo ""
 cd /opt/pangolin
+echo "Downloading latest Pangolin installer..."
+curl -fsSL https://static.pangolin.net/get-installer.sh | bash
+chmod +x ./installer
 ./installer -y
 
 # Get the configured domain from config.yml
